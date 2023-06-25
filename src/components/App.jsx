@@ -5,20 +5,21 @@ import Button from './Button';
 import FormSplitBill from './FormSplitBill';
 
 export default function App() {
-  const [addFriendIsOpen, setAddFriendIsOpen] = useState(false);
+  const [showAddFriend, setShowAddFriend] = useState(false);
+  // const [friends, setFriends] = useState(initialFriends);
 
-  const handleAddFriendIsOpen = () => setAddFriendIsOpen(isOpen => !isOpen);
+  const handleShowAddFriend = () => setShowAddFriend(show => !show);
 
   return (
     <div className="app">
       <div className="sidebar">
         <FriendsList />
 
-        {addFriendIsOpen ? (
-          <FormAddFriend onClose={handleAddFriendIsOpen} />
-        ) : (
-          <Button onClick={handleAddFriendIsOpen}>Add Friend</Button>
-        )}
+        {showAddFriend && <FormAddFriend />}
+
+        <Button onClick={handleShowAddFriend}>
+          {showAddFriend ? 'Close' : 'Add Friend'}
+        </Button>
       </div>
       <FormSplitBill />
     </div>

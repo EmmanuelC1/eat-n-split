@@ -1,6 +1,6 @@
 import Button from './Button';
 
-export default function FormAddFriend({ onClose }) {
+export default function FormAddFriend() {
   return (
     <>
       <form className="form-add-friend">
@@ -12,7 +12,6 @@ export default function FormAddFriend({ onClose }) {
 
         <Button>Add</Button>
       </form>
-      <Button onClick={onClose}>Close</Button>
     </>
   );
 }
